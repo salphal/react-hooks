@@ -1,7 +1,7 @@
 {
   "name": "@alphal/react-hooks",
   "version": "0.0.1",
-  "description": "A template for creating React component libraries with Vite, Tailwind, and Storybook.",
+  "description": "react hooks library",
   "author": "rayyamhk",
   "license": "MIT",
   "type": "module",
