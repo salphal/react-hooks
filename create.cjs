@@ -8,7 +8,7 @@ const [compName = 'demo'] = args;
 let compPath = args[1];
 
 /** 模版目录 */
-const templateDirPath = path.resolve(__dirname, './lib/__template__');
+const templateDirPath = path.resolve(__dirname, './lib/__template__/__react-hook__');
 /** 输出目录 */
 const outputDirPath = path.resolve(__dirname, './lib');
 
@@ -22,7 +22,8 @@ if (compName && !compPath) {
 }
 
 const replacements = {
-  COMP_NAME: compName.length > 1 ? capitalizeFirstLetter(compName) : 'Template',
+  COMP_NAME: compName.length > 1 ? compName : 'Template',
+  // COMP_NAME: compName.length > 1 ? capitalizeFirstLetter(compName) : 'Template',
   COMP_PATH: compPath || 'template',
   compName: lowercaseFirstLetter(compName),
 };
