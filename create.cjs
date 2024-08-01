@@ -16,7 +16,7 @@ const CreateTypes = {
  * @param[1] {string} - 组件文件名
  * @param[2] {'comp' | 'hook'} - 创建类型
  */
-const [compName = 'demo', _, createType = CreateTypes.comp] = args;
+const [compName = 'template', _, createType = CreateTypes.comp] = args;
 
 let compPath = args[1];
 
