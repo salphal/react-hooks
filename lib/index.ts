@@ -1,3 +1,5 @@
 import './global.css';
 
-export {};
+import useClientRect from '@lib/hooks/use-client-rect';
+
+export { useClientRect };
