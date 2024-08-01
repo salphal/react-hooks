@@ -32,22 +32,18 @@ if (!compName) {
 if (compName && !compPath) compPath = compName;
 /** 模版中替换的变量集合 */
 const replacements = {
-  COMP_NAME: '',
-  COMP_PATH: compPath || 'template',
+  CompName: capitalizeFirstLetter(compName),
   compName: lowercaseFirstLetter(compName),
+  'comp-file-name': compPath || 'template',
 };
 
 /** 根据创建类型更新初始化配置 */
 if (createType.toLowerCase() === CreateTypes.comp) {
-  /** react-comp */
-  replacements.COMP_NAME = capitalizeFirstLetter(compName);
   templateDirPath = path.resolve(__dirname, './lib/__template__/__react-comp__');
 } else if (createType.toLowerCase() === CreateTypes.hook) {
-  /** react-hooks */
-  replacements.COMP_NAME = compName;
   templateDirPath = path.resolve(__dirname, './lib/__template__/__react-hook__');
 } else {
-  replacements.COMP_NAME = compName.length > 1 ? compName : 'Template';
+  replacements.CompName = compName.length > 1 ? compName : 'Template';
   console.log(
     `[ Log ]: please enter createType by parameter[2], current createType: ${createType}`,
   );
