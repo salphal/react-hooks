@@ -20,8 +20,10 @@ const [compName = 'template', _, createType = CreateTypes.comp] = args;
 
 let compPath = args[1];
 
-/** 模版目录 */
-let templateDirPath = '';
+/** 模版文件基础路径 */
+const baseTempsDirPath = './lib/__template__';
+/** 目标模版路径 */
+let targetTempDirPath = '';
 /** 输出目录 */
 const outputDirPath = path.resolve(__dirname, './lib');
 
@@ -38,11 +40,11 @@ const replacements = {
   'comp-file-name': compPath || 'template',
 };
 
-const tempFullPath = path.resolve(__dirname, `./lib/__template__/__${createType}__`);
+const tempFullPath = path.resolve(__dirname, `${baseTempsDirPath}/__${createType}__`);
 
 /** 根据创建类型更新初始化配置 */
 if (createType && fs.existsSync(tempFullPath)) {
-  templateDirPath = tempFullPath;
+  targetTempDirPath = tempFullPath;
 } else {
   console.log(`[ Log ]: please enter createType by parameter[2]`);
   console.log(`[ Log ]: current createType: ${createType}`);
@@ -218,7 +220,7 @@ function convertReallyFileName(fileName, compPath) {
 
 (async function create() {
   /** 获取所有模版文件信息列表 */
-  const allFilePaths = await getAllFilePathsByDirPath(templateDirPath);
+  const allFilePaths = await getAllFilePathsByDirPath(targetTempDirPath);
 
   /** 如果没有模版文件则停止 */
   if (!allFilePaths.length) {
