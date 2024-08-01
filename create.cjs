@@ -14,7 +14,7 @@ const CreateTypes = {
  * 参数
  * @param[0] {string} - 组件名
  * @param[1] {string} - 组件文件名
- * @param[2] {'comp' | 'hook'} - 创建类型
+ * @param[2] {'comp' | 'hook' | 'custom-comp'} - 创建类型
  */
 const [compName = 'template', _, createType = CreateTypes.comp] = args;
 
