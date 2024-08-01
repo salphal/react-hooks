@@ -8,6 +8,7 @@ import {
   Description,
   Canvas,
   Controls,
+  ArgTypes,
   Primary,
   Source,
   Stories,
@@ -25,6 +26,11 @@ import * as ${CompName}Stories from "./${comp-file-name}.stories";
 <Primary/>
 
 <Controls/>
+
+<Subheading>Usage</Subheading>
+
+<Source language="tsx" code={`
+`}/>
 
 <Subheading>Default ${CompName}</Subheading>
 
