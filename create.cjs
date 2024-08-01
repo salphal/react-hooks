@@ -7,6 +7,7 @@ const args = process.argv.slice(2);
 const CreateTypes = {
   comp: 'comp',
   hook: 'hook',
+  'custom-comp': 'custom-comp',
 };
 
 /**
@@ -29,7 +30,7 @@ if (!compName) {
   process.exit(1);
 }
 
-if (compName && !compPath) compPath = compName;
+// if (compName && !compPath) compPath = compName;
 /** 模版中替换的变量集合 */
 const replacements = {
   CompName: capitalizeFirstLetter(compName),
@@ -37,16 +38,14 @@ const replacements = {
   'comp-file-name': compPath || 'template',
 };
 
+const tempFullPath = path.resolve(__dirname, `./lib/__template__/__${createType}__`);
+
 /** 根据创建类型更新初始化配置 */
-if (createType.toLowerCase() === CreateTypes.comp) {
-  templateDirPath = path.resolve(__dirname, './lib/__template__/__react-comp__');
-} else if (createType.toLowerCase() === CreateTypes.hook) {
-  templateDirPath = path.resolve(__dirname, './lib/__template__/__react-hook__');
+if (createType && fs.existsSync(tempFullPath)) {
+  templateDirPath = tempFullPath;
 } else {
-  replacements.CompName = compName.length > 1 ? compName : 'Template';
-  console.log(
-    `[ Log ]: please enter createType by parameter[2], current createType: ${createType}`,
-  );
+  console.log(`[ Log ]: please enter createType by parameter[2]`);
+  console.log(`[ Log ]: current createType: ${createType}`);
   process.exit(1);
 }
 
