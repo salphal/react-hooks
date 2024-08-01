@@ -1,14 +1,14 @@
 import React, {type ForwardRefRenderFunction, type Ref, useState, useEffect, useRef, useImperativeHandle} from "react";
 
-export interface ${COMP_NAME}Props {
+export interface ${CompName}Props {
 }
 
-export interface ${COMP_NAME}Ref {
+export interface ${CompName}Ref {
 }
 
-const ${COMP_NAME}: ForwardRefRenderFunction<${COMP_NAME}Ref, ${COMP_NAME}Props> = (
-  props: ${COMP_NAME}Props,
-  ref: Ref<${COMP_NAME}Ref | HTMLDivElement>,
+const ${CompName}: ForwardRefRenderFunction<${CompName}Ref, ${CompName}Props> = (
+  props: ${CompName}Props,
+  ref: Ref<${CompName}Ref | HTMLDivElement>,
 ) => {
 
   const {} = props;
@@ -21,11 +21,11 @@ const ${COMP_NAME}: ForwardRefRenderFunction<${COMP_NAME}Ref, ${COMP_NAME}Props>
     <React.Fragment>
 
       <div className={""}>
-        ${COMP_NAME} Component
+        ${CompName} Component
       </div>
 
     </React.Fragment>
   );
 };
 
-export default React.forwardRef(${COMP_NAME});
+export default React.forwardRef(${CompName});

@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 
-export interface ${COMP_NAME}Props {
+export interface ${CompName}Props {
 }
 
-const ${COMP_NAME} = (props: ${COMP_NAME}Props) => {
+const ${compName} = (props: ${CompName}Props) => {
 
   const {} = props;
 
@@ -12,4 +12,4 @@ const ${COMP_NAME} = (props: ${COMP_NAME}Props) => {
   return {};
 };
 
-export default ${COMP_NAME};
+export default ${compName};

@@ -1,8 +1,8 @@
 import React from 'react';
-import ${COMP_NAME}, {type ${COMP_NAME}Props} from "./${COMP_PATH}";
+import ${CompName}, {type ${CompName}Props} from "./${comp-file-name}";
 
 
-export const ${COMP_NAME}Story = React.forwardRef<any, ${COMP_NAME}Props>(
+export const ${CompName}Story = React.forwardRef<any, ${CompName}Props>(
   (
     {
       ...rest
@@ -14,7 +14,7 @@ export const ${COMP_NAME}Story = React.forwardRef<any, ${COMP_NAME}Props>(
 
     return (
       <div className="story-wrap">
-        <${COMP_NAME}
+        <${CompName}
           ref={ref}
           {...props}
         />
@@ -25,6 +25,6 @@ export const ${COMP_NAME}Story = React.forwardRef<any, ${COMP_NAME}Props>(
 );
 
 
-${COMP_NAME}Story.displayName = '${COMP_NAME}Story';
+${CompName}Story.displayName = '${CompName}Story';
 
-export default React.memo(${COMP_NAME}Story);
+export default React.memo(${CompName}Story);

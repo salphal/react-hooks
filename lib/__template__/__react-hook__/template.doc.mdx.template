@@ -1,4 +1,4 @@
-{/* ${COMP_PATH}.doc.mdx */}
+{/* ${compName}.doc.mdx */}
 
 import {
   Meta,
@@ -8,16 +8,15 @@ import {
   Description,
   Canvas,
   Controls,
-  Anchor,
   Primary,
   Source,
   Stories,
   Unstyled
 } from '@storybook/blocks';
 
-import * as ${COMP_NAME}Stories from "./${COMP_PATH}.stories";
+import * as ${CompName}Stories from "./${comp-file-name}.stories";
 
-<Meta of={${COMP_NAME}Stories}/>
+<Meta of={${CompName}Stories}/>
 
 <Title/>
 
@@ -27,13 +26,13 @@ import * as ${COMP_NAME}Stories from "./${COMP_PATH}.stories";
 
 <Controls/>
 
-<Subheading>Default ${COMP_NAME}</Subheading>
+<Subheading>Default ${CompName}</Subheading>
 
-<Canvas of={${COMP_NAME}Stories.DefaultExample}/>
+<Canvas of={${CompName}Stories.Default${CompName}}/>
 
-<Subheading>Another ${COMP_NAME}</Subheading>
+<Subheading>Another ${CompName}</Subheading>
 
-<Canvas of={${COMP_NAME}Stories.AnotherExample}/>
+<Canvas of={${CompName}Stories.Another${CompName}}/>
 
 <style>
   {`

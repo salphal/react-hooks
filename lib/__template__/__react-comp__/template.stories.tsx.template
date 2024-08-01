@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ${COMP_NAME}, { type ${COMP_NAME}Props } from "./${COMP_PATH}";
-import { ${COMP_NAME}Story } from './${COMP_PATH}.story';
+import ${CompName}, { type ${CompName}Props } from "./${comp-file-name}";
+import { ${CompName}Story } from './${comp-file-name}.story';
 
 
 const meta = {
-  title: 'Components/${COMP_NAME}',
-  component: ${COMP_NAME}Story,
+  title: 'Components/${CompName}',
+  component: ${CompName}Story,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
@@ -17,23 +17,23 @@ const meta = {
   },
   argTypes: {
   },
-} satisfies Meta<typeof ${COMP_NAME}>;
+} satisfies Meta<typeof ${CompName}>;
 
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 
-const defaultProps: ${COMP_NAME}Props = {
+const defaultProps: ${CompName}Props = {
 };
 
-export const Default${COMP_NAME}: Story = {
+export const Default${CompName}: Story = {
   args: {
     ...defaultProps
   }
 };
 
-export const Another${COMP_NAME}: Story = {
+export const Another${CompName}: Story = {
   args: {
     ...defaultProps
   }
