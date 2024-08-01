@@ -4,17 +4,14 @@ import Example, { ExampleProps } from './example';
 import { ExampleStory } from './example.story';
 
 /**
- * storyboook@8.2.5
- *
- * 主配置文件 .storybook > main.ts
- * 内容区域配置文件 .storybook > preview.ts
+ * 自动生成 doc
  */
 
 const meta = {
   /**
    * 标题( 可通过 / 分组 )
    */
-  title: 'Example',
+  title: 'Example-AutoDocs',
   /**
    * 组件
    */

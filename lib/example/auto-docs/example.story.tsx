@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ExampleProps } from '@lib/example/example.tsx';
+import type { ExampleProps } from '@lib/example/auto-docs/example.tsx';
 import Example from './example.tsx';
 
 /**
