@@ -1,20 +1,67 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import useClientRect, { type UseClientRectProps } from './use-client-rect';
+import UseClientRect, {
+  type UseClientRectProps,
+  type ClientRect,
+  initialClientRect,
+} from './use-client-rect';
 import { UseClientRectStory } from './use-client-rect.story';
 
 const meta = {
   title: 'Components/UseClientRect',
   component: UseClientRectStory,
-  tags: ['autodocs'],
+  // tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     docs: {
-      toc: false,
+      toc: true,
     },
   },
-  args: {},
-  argTypes: {},
-} satisfies Meta<typeof useClientRect>;
+  args: {
+    width: 200,
+    height: 200,
+    top: 100,
+    left: 100,
+    rect: initialClientRect,
+  },
+  argTypes: {
+    width: {
+      type: 'number',
+      control: {
+        type: 'number',
+      },
+      description: '测试属性( 非组件或方法的属性 )',
+    },
+    height: {
+      type: 'number',
+      control: {
+        type: 'number',
+      },
+      description: '测试属性( 非组件或方法的属性 )',
+    },
+    top: {
+      type: 'number',
+      control: {
+        type: 'number',
+      },
+      description: '测试属性( 非组件或方法的属性 )',
+    },
+    left: {
+      type: 'number',
+      control: {
+        type: 'number',
+      },
+      description: '测试属性( 非组件或方法的属性 )',
+    },
+    rect: {
+      type: 'ClientRect',
+      description: '',
+    },
+    domRef: {
+      type: 'MutableRefObject<any> | null',
+      description: '',
+    },
+  },
+} satisfies Meta<typeof UseClientRect>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -22,6 +69,12 @@ type Story = StoryObj<typeof meta>;
 const defaultProps: UseClientRectProps = {};
 
 export const DefaultUseClientRect: Story = {
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const AnotherUseClientRect: Story = {
   args: {
     ...defaultProps,
   },

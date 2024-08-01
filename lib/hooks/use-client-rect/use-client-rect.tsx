@@ -1,6 +1,6 @@
 import { type MutableRefObject, useEffect, useRef, useState } from 'react';
 
-const initialClientRect = {
+export const initialClientRect = {
   top: null,
   right: null,
   bottom: null,
@@ -31,22 +31,25 @@ export interface ClientRect {
 }
 
 export interface UseClientRectProps {
-  [key: string]: any;
-
   /** 元素唯一ID */
   id?: string;
   /** 元素类名 */
   clazzName?: string;
-  /** React */
-  dom?: MutableRefObject<Element | null>;
+}
+
+export interface UseClientReturnValue {
+  /** 使用 useRef(); 获取的元素 */
+  domRef: MutableRefObject<any> | null;
+  /** 计算后的元素信息 */
+  rect: ClientRect;
 }
 
 /**
  * 获取元素计算后的最终信息
  * @param props {Object}
  */
-const useClientRect = (props: UseClientRectProps = {}) => {
-  const { id, clazzName, dom } = props;
+const useClientRect = (props: UseClientRectProps = {}): UseClientReturnValue => {
+  const { id, clazzName } = props;
 
   const [rect, setRect] = useState<ClientRect>(initialClientRect);
   const domRef = useRef<any>(null);
@@ -57,7 +60,7 @@ const useClientRect = (props: UseClientRectProps = {}) => {
     return () => {
       window.removeEventListener('resize', windowOnResize);
     };
-  }, [id, clazzName, dom]);
+  }, [id, clazzName]);
 
   const windowOnResize = () => {
     let element: HTMLElement | null = null;
@@ -68,9 +71,8 @@ const useClientRect = (props: UseClientRectProps = {}) => {
     } else if (typeof clazzName === 'string' && clazzName.length) {
       element = document.querySelector(clazzName);
     } else {
-      console.log(
-        `[ Log ]: Please check the input parameters( id/clazzName, domRef ), htmlElement: ${element}`,
-      );
+      console.log(`[ Log ]: Please check the input parameters( id/clazzName, domRef )`);
+      console.log(`[ Log ]: htmlElement: ${element}`);
     }
     if (element !== null && element.getBoundingClientRect && element instanceof HTMLElement) {
       const rect = element.getBoundingClientRect();

@@ -13,6 +13,8 @@ import {
   Stories,
   Unstyled,
   Story,
+  ArgTypes,
+  Markdown,
 } from '@storybook/blocks';
 
 import * as ExampleStories from './example.stories';
@@ -39,7 +41,17 @@ import * as ExampleStories from './example.stories';
 
 {/* 自动引入源数据中 控制器 */}
 
-<Controls />
+<Controls
+  include={[]}
+  exclude={[]}
+/>
+
+{/* 自动引入源数据中 类型( 对比 Controls 没有 默认值列 ) */}
+
+<ArgTypes
+  include={[]}
+  exclude={[]}
+/>
 
 {/* 自动引入源数据 所有定义的 Story */}
 
@@ -64,6 +76,14 @@ import * as ExampleStories from './example.stories';
 {/* 自定义 Story( 选用 Canvas ) */}
 
 <Story of={ExampleStories.AnotherExample} />
+
+{/* 自定义 markdown 语法 */}
+
+<Markdown>
+  {`
+    # Header
+  `}
+</Markdown>
 
 {/* 自定义 无样式文本 */}
 

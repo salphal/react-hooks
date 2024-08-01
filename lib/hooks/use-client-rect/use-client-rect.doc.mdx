@@ -1,0 +1,63 @@
+{/* use-client-rect.doc.mdx */}
+
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Subheading,
+  Description,
+  Canvas,
+  Controls,
+  ArgTypes,
+  Primary,
+  Source,
+  Stories,
+  Unstyled,
+} from '@storybook/blocks';
+
+import * as UseClientRectStories from './use-client-rect.stories';
+
+<Meta of={UseClientRectStories} />
+
+<Title />
+
+<Description />
+
+<Primary />
+
+<Subheading>Props</Subheading>
+
+<Controls include={['id', 'clazzName']} />
+
+<Subheading>Test</Subheading>
+
+<Controls include={['width', 'height', 'top', 'left']} />
+
+<Subheading>Usage</Subheading>
+
+<Source language="tsx" code={`
+
+// 根据 ID 获取 元素 计算后的信息
+const { rect } = useClientRect({id: ""});
+
+// 根据 className 获取 元素 计算后的信息
+const { rect } = useClientRect({clazzName: ""});
+
+// 根据 useRef() 获取 元素 计算后的信息
+const { rect, domRef } = useClientRect({clazzName: ""});
+
+`}/>
+
+<Subheading>Return Value</Subheading>
+
+<ArgTypes exclude={['width', 'height', 'top', 'left', 'id', 'clazzName']} />
+
+<Subheading>Default UseClientRect</Subheading>
+
+<Canvas of={UseClientRectStories.DefaultUseClientRect} />
+
+<style>
+  {`
+
+`}
+</style>

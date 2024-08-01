@@ -26,7 +26,7 @@ const meta = {
    *  - 暴露的 interface 上不能使用 [key: string]: any, 否则无法自动解析
    *  - 默认值设置必须在 函数的第一个参数上解构 props, 并为某个属性设置默认值, 否则无法解析
    */
-  //tags: ['autodocs'],
+  // tags: ['autodocs'],
   /**
    * 设置 stories preview 的该如何展示
    *  - 全局配置: .storybook > preview.ts
@@ -57,24 +57,28 @@ const meta = {
       control: {
         type: 'text',
       },
+      description: '',
     },
     number: {
       type: 'number',
       control: {
         type: 'number',
       },
+      description: '',
     },
     boolean: {
       type: 'boolean',
       control: {
         type: 'boolean',
       },
+      description: '',
     },
     object: {
       type: 'object',
       control: {
         type: 'object',
       },
+      description: '',
     },
 
     select: {

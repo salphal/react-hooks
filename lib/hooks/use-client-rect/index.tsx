@@ -1,3 +1,3 @@
-import UseClientRect from './use-client-rect.tsx';
+import useClientRect from './use-client-rect';
 
-export default UseClientRect;
+export default useClientRect;
