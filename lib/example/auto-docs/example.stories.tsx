@@ -11,7 +11,7 @@ const meta = {
   /**
    * 标题( 可通过 / 分组 )
    */
-  title: 'Example-AutoDocs',
+  title: 'Example/AutoDocs',
   /**
    * 组件
    */
