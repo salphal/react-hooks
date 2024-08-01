@@ -1,14 +1,26 @@
 const fs = require('fs');
 const path = require('path');
 
+/** 获取启动命令的参数 */
 const args = process.argv.slice(2);
 
-const [compName = 'demo'] = args;
+const CreateTypes = {
+  comp: 'comp',
+  hook: 'hook',
+};
+
+/**
+ * 参数
+ * @param[0] {string} - 组件名
+ * @param[1] {string} - 组件文件名
+ * @param[2] {'comp' | 'hook'} - 创建类型
+ */
+const [compName = 'demo', _, createType = CreateTypes.comp] = args;
 
 let compPath = args[1];
 
 /** 模版目录 */
-const templateDirPath = path.resolve(__dirname, './lib/__template__/__react-hook__');
+let templateDirPath = '';
 /** 输出目录 */
 const outputDirPath = path.resolve(__dirname, './lib');
 
@@ -17,16 +29,30 @@ if (!compName) {
   process.exit(1);
 }
 
-if (compName && !compPath) {
-  compPath = compName;
-}
-
+if (compName && !compPath) compPath = compName;
+/** 模版中替换的变量集合 */
 const replacements = {
-  COMP_NAME: compName.length > 1 ? compName : 'Template',
-  // COMP_NAME: compName.length > 1 ? capitalizeFirstLetter(compName) : 'Template',
+  COMP_NAME: '',
   COMP_PATH: compPath || 'template',
   compName: lowercaseFirstLetter(compName),
 };
+
+/** 根据创建类型更新初始化配置 */
+if (createType.toLowerCase() === CreateTypes.comp) {
+  /** react-comp */
+  replacements.COMP_NAME = capitalizeFirstLetter(compName);
+  templateDirPath = path.resolve(__dirname, './lib/__template__/__react-comp__');
+} else if (createType.toLowerCase() === CreateTypes.hook) {
+  /** react-hooks */
+  replacements.COMP_NAME = compName;
+  templateDirPath = path.resolve(__dirname, './lib/__template__/__react-hook__');
+} else {
+  replacements.COMP_NAME = compName.length > 1 ? compName : 'Template';
+  console.log(
+    `[ Log ]: please enter createType by parameter[2], current createType: ${createType}`,
+  );
+  process.exit(1);
+}
 
 /**
  * 获取指定目录下所有文件的完整路径列表
@@ -199,6 +225,7 @@ function convertReallyFileName(fileName, compPath) {
   /** 获取所有模版文件信息列表 */
   const allFilePaths = await getAllFilePathsByDirPath(templateDirPath);
 
+  /** 如果没有模版文件则停止 */
   if (!allFilePaths.length) {
     console.log('[ Error ]: File list is empty');
     return;
