@@ -7,7 +7,7 @@ import UseClientRect, {
 import { UseClientRectStory } from './use-client-rect.story';
 
 const meta = {
-  title: 'Components/UseClientRect',
+  title: 'Hooks/UseClientRect',
   component: UseClientRectStory,
   // tags: ['autodocs'],
   parameters: {
