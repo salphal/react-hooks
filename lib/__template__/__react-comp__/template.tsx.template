@@ -21,7 +21,7 @@ const ${COMP_NAME}: ForwardRefRenderFunction<${COMP_NAME}Ref, ${COMP_NAME}Props>
     <React.Fragment>
 
       <div className={""}>
-        hello world
+        ${COMP_NAME} Component
       </div>
 
     </React.Fragment>
