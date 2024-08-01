@@ -1,0 +1,30 @@
+import React from 'react';
+import ${CompName}, {type ${CompName}Props} from "./${comp-file-name}";
+
+
+export const ${CompName}Story = React.forwardRef<any, ${CompName}Props>(
+  (
+    {
+      ...rest
+    },
+    ref,
+  ) => {
+
+    const props = { ...rest };
+
+    return (
+      <div className="story-wrap">
+        <${CompName}
+          ref={ref}
+          {...props}
+        />
+      </div>
+
+    );
+  },
+);
+
+
+${CompName}Story.displayName = '${CompName}Story';
+
+export default React.memo(${CompName}Story);

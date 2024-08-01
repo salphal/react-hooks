@@ -1,4 +1,4 @@
-{/* ${compName}.doc.mdx */}
+{/* ${comp-file-name}.doc.mdx */}
 
 import {
   Meta,

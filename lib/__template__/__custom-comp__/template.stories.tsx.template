@@ -6,7 +6,7 @@ import { ${CompName}Story } from './${comp-file-name}.story';
 const meta = {
   title: 'Components/${CompName}',
   component: ${CompName}Story,
-  tags: ['autodocs'],
+  // tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     docs: {
