@@ -1,0 +1,42 @@
+{/* ${COMP_PATH}.doc.mdx */}
+
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Subheading,
+  Description,
+  Canvas,
+  Controls,
+  Anchor,
+  Primary,
+  Source,
+  Stories,
+  Unstyled
+} from '@storybook/blocks';
+
+import * as ${COMP_NAME}Stories from "./${COMP_PATH}.stories";
+
+<Meta of={${COMP_NAME}Stories}/>
+
+<Title/>
+
+<Description/>
+
+<Primary/>
+
+<Controls/>
+
+<Subheading>Default ${COMP_NAME}</Subheading>
+
+<Canvas of={${COMP_NAME}Stories.DefaultExample}/>
+
+<Subheading>Another ${COMP_NAME}</Subheading>
+
+<Canvas of={${COMP_NAME}Stories.AnotherExample}/>
+
+<style>
+  {`
+
+  `}
+</style>
