@@ -57,24 +57,28 @@ const meta = {
       control: {
         type: 'text',
       },
+      description: '',
     },
     number: {
       type: 'number',
       control: {
         type: 'number',
       },
+      description: '',
     },
     boolean: {
       type: 'boolean',
       control: {
         type: 'boolean',
       },
+      description: '',
     },
     object: {
       type: 'object',
       control: {
         type: 'object',
       },
+      description: '',
     },
 
     select: {

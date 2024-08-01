@@ -2,10 +2,12 @@ import React from 'react';
 import type { ExampleProps } from '@lib/example/auto-docs/example.tsx';
 import Example from './example.tsx';
 
+export interface ExampleStoryProps {}
+
 /**
  * 设置属性默认值
  */
-export const ExampleStory = React.forwardRef<any, ExampleProps>(
+export const ExampleStory = React.forwardRef<any, ExampleStoryProps & ExampleProps>(
   (
     {
       string = '',
