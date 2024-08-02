@@ -73,9 +73,3 @@ export const DefaultUseClientRect: Story = {
     ...defaultProps,
   },
 };
-
-export const AnotherUseClientRect: Story = {
-  args: {
-    ...defaultProps,
-  },
-};

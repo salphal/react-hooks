@@ -25,7 +25,7 @@ const baseTempsDirPath = './lib/__template__';
 /** 目标模版路径 */
 let targetTempDirPath = '';
 /** 输出目录 */
-const outputDirPath = path.resolve(__dirname, './lib');
+let outputDirPath = path.resolve(__dirname, './lib');
 
 if (!compName) {
   console.error('[ Error ]: Please check args[1]');
@@ -45,6 +45,11 @@ const tempFullPath = path.resolve(__dirname, `${baseTempsDirPath}/__${createType
 /** 根据创建类型更新初始化配置 */
 if (createType && fs.existsSync(tempFullPath)) {
   targetTempDirPath = tempFullPath;
+  if ([CreateTypes.comp, CreateTypes["custom-comp"]].includes(createType)) {
+    outputDirPath = path.resolve(__dirname, './lib/components');
+  } else if (createType === CreateTypes.hook) {
+    outputDirPath = path.resolve(__dirname, './lib/hooks');
+  }
 } else {
   console.log(`[ Log ]: please enter createType by parameter[2]`);
   console.log(`[ Log ]: current createType: ${createType}`);
@@ -118,7 +123,7 @@ async function convertAllFiles(allFilePaths) {
   if (!isCreatedDir) return;
 
   for (let i = 0; i < allFilePaths.length; i++) {
-    const { fileName, fullPath } = allFilePaths[i];
+    const {fileName, fullPath} = allFilePaths[i];
 
     if (!fileName || !fullPath) return;
 

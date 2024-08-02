@@ -5,6 +5,9 @@ import useClientRect, {
   type UseClientRectProps,
 } from './use-client-rect';
 
+const event = document.createEvent('HTMLEvents');
+event.initEvent('resize', true, true);
+
 export interface UseClientRectStoryProps {
   width?: number;
   height?: number;
@@ -22,10 +25,8 @@ export const UseClientRectStory = React.forwardRef<
   const props = { id, clazzName, ...rest };
 
   useEffect(() => {
-    const event = document.createEvent('HTMLEvents');
-    event.initEvent('resize', true, true);
     window.dispatchEvent(event);
-  }, [width, height]);
+  }, [width, height, top, left]);
 
   return (
     <div className="story-wrap relative">
@@ -42,8 +43,8 @@ export const UseClientRectStory = React.forwardRef<
           left,
         }}
       >
-        id: rect <br />
-        className: rect
+        id: client-rect <br />
+        className: client-rect
       </div>
       rect: {JSON.stringify(rectInfo)}
     </div>

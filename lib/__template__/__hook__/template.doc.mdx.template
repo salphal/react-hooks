@@ -32,11 +32,11 @@ import * as ${CompName}Stories from "./${comp-file-name}.stories";
 <Source language="tsx" code={`
 `}/>
 
-<Subheading>Default ${CompName}</Subheading>
+<Subheading>Default ${compName}</Subheading>
 
 <Canvas of={${CompName}Stories.Default${CompName}}/>
 
-<Subheading>Another ${CompName}</Subheading>
+<Subheading>Another ${compName}</Subheading>
 
 <Canvas of={${CompName}Stories.Another${CompName}}/>
 
