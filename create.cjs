@@ -45,7 +45,7 @@ const tempFullPath = path.resolve(__dirname, `${baseTempsDirPath}/__${createType
 /** 根据创建类型更新初始化配置 */
 if (createType && fs.existsSync(tempFullPath)) {
   targetTempDirPath = tempFullPath;
-  if ([CreateTypes.comp, CreateTypes["custom-comp"]].includes(createType)) {
+  if ([CreateTypes.comp, CreateTypes['custom-comp']].includes(createType)) {
     outputDirPath = path.resolve(__dirname, './lib/components');
   } else if (createType === CreateTypes.hook) {
     outputDirPath = path.resolve(__dirname, './lib/hooks');
@@ -123,7 +123,7 @@ async function convertAllFiles(allFilePaths) {
   if (!isCreatedDir) return;
 
   for (let i = 0; i < allFilePaths.length; i++) {
-    const {fileName, fullPath} = allFilePaths[i];
+    const { fileName, fullPath } = allFilePaths[i];
 
     if (!fileName || !fullPath) return;
 
